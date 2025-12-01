@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            min-width: 500px;
+            min-height: 300px;
+            padding: 15px;
+        }
+
+        h2{
+            color: #2a2a2a;
+            margin-bottom: 10px;
+        }
+        .options{
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+           
+        }
+        button{
+            padding: 10px 15px;
+            background-color: rgb(91, 91, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(112, 112, 239);
+        }
+        #copy-btn{
+            background-color: rgb(93, 247, 196);
+        }
+        #copy-btn:hover{
+            background-color: rgb(137, 233, 201);
+        }
+    
+         #summary-type{
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #444;
+            background: #fff;
+            outline: none;
+            font-size: 16px;
+        }
+
+        #result{
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            min-height: 150px;
+            max-height: 400px;
+            overflow: auto;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            font-size: 20px;
+        }
+        #result ul{
+            padding-left: 20px;
+        }
+        #result li{
+            margin-top: 10px;
+        }
+        .loading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+        .loader{
+            border: 4px solid #ddd;
+            border-top: 4px solid rgb(74, 74, 246);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <title>AI sumary</title>
+</head>
+<body style="width: 200px; padding: 10px; font-family: 'Times New Roman', Times, serif;">
+    <h2>AI Summary</h2>
+   <div class="options">
+         <select id="summary-type">
+            <option value="brief">Brief</option>
+            <option value="detailed">Detailed</option>
+            <option value="bullets">Bullets</option>
+        </select>
+            <button id="summerize">Summerize</button>
+            <button id="copy-btn">Copy</button>
+   </div>
+
+    <pre id="result">Select a type and click Summerize</pre>
+
+    <script src="popup.js"></script>
+</body>
+</html>

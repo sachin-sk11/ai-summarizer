@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "AI Summarizer for Articles",
+    "version": "1.0",
+    "description": "Summarize articles using AI with customizable summary types",
+    
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "storage"
+    ],
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "image.png"
+    },
+
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+    }],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "options_page": "options.html",
+
+    "host_permissions": ["<all_urls>"]
+}
