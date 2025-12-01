@@ -1,125 +1,67 @@
-AI Summarizer – Chrome Extension
+# AI Summarizer
 
-A simple Chrome extension that extracts article text from any webpage and produces summaries using the Google Gemini API. Supports brief, detailed, and bulleted summaries.
+AI Summarizer is a powerful tool that leverages artificial intelligence to generate concise summaries from long texts. It helps users quickly understand the core information from articles, documents, or any written material.
 
-Features
+## Features
 
-Extracts readable article text from most websites
+- 🧠 AI-powered text summarization
+- 📄 Supports various input formats
+- ⚡ Fast and accurate results
+- 🔧 Easy to customize and integrate
 
-Generates summaries using the Gemini API
+## Installation
 
-Supports three summary modes: brief, detailed, bullets
+Clone this repository:
 
-Uses a clean popup interface with loading indicator
+```bash
+git clone https://github.com/sachin-sk11/ai-summarizer.git
+cd ai-summarizer
+```
 
-Copies the generated summary with one click
+Install dependencies:
 
-Stores the API key securely using Chrome storage.sync
+```bash
+# Using npm
+npm install
 
-Works even on dynamically loaded pages using script injection fallback
+# Or using yarn
+yarn install
+```
 
-Uses the stable model models/gemini-2.5-flash
+## Usage
 
-Installation (Developer Mode)
+Basic usage example:
 
-Clone or download the repository:
+```bash
+# Run the summarizer with a text file as input
+node summarizer.js input.txt
+```
 
-git clone https://github.com/sachin-sk11/AI-summarize-chrome-extension.git
+You can also use the summarizer in your own projects:
 
+```javascript
+const summarize = require('./summarizer');
 
-Open Chrome and navigate to:
+const text = "Paste your long text here...";
+const summary = summarize(text);
+console.log(summary);
+```
 
-chrome://extensions/
+## Configuration
 
+You can configure the summarization parameters in `config.js` (see documentation for available options).
 
-Enable Developer Mode
+## Contributing
 
-Click Load unpacked
+Contributions are welcome! Please open an issue or submit a pull request for enhancements or bug fixes.
 
-Select the project folder
+## License
 
-The extension will now appear in your browser toolbar
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Setting Up the API Key
+## Acknowledgments
 
-Open Google AI Studio and create an API key:
-https://makersuite.google.com/app/apikey
+- Thanks to all contributors and open-source libraries used in this project.
 
-Open the extension popup → click Options
-
-Enter your Gemini API key
-
-Click Save Settings
-
-The key is saved securely via chrome.storage.sync.
-
-How It Works
-1. Popup
-
-User selects summary type and clicks "Summarize"
-
-A loading animation is shown
-
-2. Content Script
-
-Extracts readable text from:
-
-<article> elements
-
-Paragraphs
-
-Page metadata
-
-Or via injected script if the page blocks extension scripts
-
-3. Gemini API
-
-The extracted content is sent to:
-
-https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent
-
-4. Result
-
-The extension displays a generated text summary based on the chosen summary mode.
-
-Project Structure
-AI-summarizer-extension/
-│
-├── manifest.json
-├── popup.html
-├── popup.js
-├── content.js
-├── background.js
-├── options.html
-├── options.js
-├── image.png
-└── README.md
-
-Manifest Permissions
-
-activeTab – needed to access the content of the active page
-
-scripting – used to inject the content script when required
-
-storage – stores the API key
-
-host_permissions: ["<all_urls>"] – allows text extraction on any site
-
-Troubleshooting
-API key not valid
-
-Generate a new key and update it in the Options page.
-
-Could not extract text
-
-Some websites restrict content scripts. Refresh the page and try again.
-
-“Could not establish connection”
-
-Occurs when the content script has not loaded. Reload the page.
-
-Model not found
-
-If you see models/gemini-1.5-flash not found, update to:
-
-models/gemini-2.5-flash
+---
+Feel free to customize this README further to fit your project's specifics.
